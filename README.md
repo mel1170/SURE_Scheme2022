@@ -14,5 +14,5 @@ Moreover, you can change the number in the sqaured paranthesis in pos_s_combined
 Another important note is that this a product of a 6-week summer research project, therefore the code may not be comprehensive enough to show all the solar physics necessary to detect the Anti-Hale regions and feel free to contact me via email if you find any parts confusing: melisabozac@gmail.com
 
 
-<img src="[https://lh6.googleusercontent.com/OPjROftK5_2aB3sRcqobZEaekku1N_W-kS6PbySHaEZ8QSi7c78RDv-K3OVMFqy3mKr2MnxtSJUYmVvlljg9cgNY6Pajzk39nDKym6ObwBgmddJ4C0-lKlxMj5K0TBCKdQ=w1280]"  width="300" height="300">
-<img src="[https://lh3.googleusercontent.com/_05AaIpShgKCf0T2NVNLmflNK4U5fy0E6tCimqgFC3r9nnSNk83U8uC9bisG6ag2iLXg5G3Baict2IkByl4uoJnXAmeglpfdfuPImiLyKndGltdIqD3sfTKp9avutCYDMw=w1280]"  width="300" height="300">
+![image](https://user-images.githubusercontent.com/34107944/201670007-c5576b12-5616-4bf8-baea-087ab68fef08.png)
+![image](https://user-images.githubusercontent.com/34107944/201670077-abc6c865-0b12-4039-9c0e-0fa1ef80da95.png)
