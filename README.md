@@ -46,7 +46,7 @@ hmi_contour_pos = hmi_smap.contour(100*u.Gauss)
 
 The Skycoord is converted to strings and then coordinates to reflect the region that the code has found to the other hemisphere. The code checks the regions that have been found if they have three points or not because if they are less than 3, they cannot be counted a polygon/region. 
 
-Some buffer regions are added by using ```Polygon().buffer ```and areas, that are close to each other, are combined together using ```unary_union()``` to expand the area of the regions because once they are reflected there may not a region at the exact location and it can compare more areas with this way. Then, magnetic regions with different directions that are close to each have been combined together to find the polarity/bipolar regions using ```unary_union()```. 
+Some buffer regions are added by using ```Polygon().buffer ```. The areas, that are close to each other, are combined together using ```unary_union()``` to expand the area of the regions because once they are reflected there may not a region at the exact location and it can compare more areas with this way. Then, magnetic regions with different directions that are close to each have been combined together to find the polarity/bipolar regions using ```unary_union()```. 
 
 Once the polarity regions have been found in both hemispheres, a contour with 1000/-1000 Gauss is added to find if the regions are containing any sunspots with these lines
 ```
