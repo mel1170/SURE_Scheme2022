@@ -44,11 +44,26 @@ hmi_contour_neg = hmi_smap.contour(-100* u.Gauss)
 hmi_contour_pos = hmi_smap.contour(100*u.Gauss)
 ```
 
-Feel free to change the date to look at the HMI data you want to look in the second cell.
-In the cell with explanation with "Coordinates of the Contoured Area", you can change pos_s_combined[] to pos_n_combined[], neg_s_combined[], and neg_n_combined[] to check if the code is detecting the right areas.
+The Skycoord is converted to strings and then coordinates to reflect the region that the code has found to the other hemisphere. The code checks the regions that has been found if they have three points or not as if they are less than 3, they cannot be counted a polygon/region. 
+
+Using ```Polygon().buffer ``` some buffer regions have added and areas, that are close to each other, are combined together using ```unary_union()``` to expand the area of the regions because once they are reflected there may not a region at the exact location and it can compare more areas with this way. Then, magnetic regions with different directions that are close to each have been combined together to find the polarity/bipolar regions using ```unary_union()```. 
+
+Once the polarity regions have been found in both hemispheres, a contour with 1000/-1000 Gauss is added to find if the regions are containing any sunspots with these lines
+```
+hmi_contour_neg_ss = hmi_smap.contour(-1000* u.Gauss)
+hmi_contour_pos_ss = hmi_smap.contour(1000*u.Gauss)
+```
+Then, the polarity regions without any sunspots are removed and the code compares two hemispheres if the polarities are reversed in the other hemisphere.
+
+``` common_elements_south_pos, common_elements_north_pos, common_elements_south_neg,  common_elements_north_neg``` find the indices of the regions that are Anti-Hale regions.
 
 
-Moreover, you can change the number in the sqaured paranthesis in pos_s_combined[], pos_n_combined[], neg_s_combined[], and neg_n_combined[] in that cell to the numbers you get from the cells above which will allow you to check if the code is detecting an Anti-Hale  region or not.
+```ch_boundary = SkyCoord(
+    list(zip(*pos_s_combined[290].exterior.coords.xy))*u.arcsec,
+    obstime=hmi_rotated.date, observer="earth",
+    frame=frames.Helioprojective)
+``` 
+This part of the code allows to visualise the areas that the code has detected as an Anti-Hale region. It allows to check if the code is detecting the right areas or not. You can change ```pos_s_combined[] to pos_n_combined[], neg_s_combined[], neg_n_combined[]``` to check if the code is detecting the right areas and you can change the index number in the sqaured paranthesis in ```pos_s_combined[], pos_n_combined[], neg_s_combined[], neg_n_combined[]``` the index numbers you get from the cells above which will allow you to check if the code is detecting an Anti-Hale  region or not.
 
 
 Another important note is that this a product of a 6-week summer research project, therefore the code may not be comprehensive enough to show all the solar physics necessary to detect the Anti-Hale regions and feel free to contact me via email if you find any parts confusing: melisabozac@gmail.com
